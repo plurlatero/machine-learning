@@ -30,10 +30,13 @@ X = [ones(m, 1) X];
 %       for each row.
 %       
 
-
-
-
-
+for i = 1:m
+    TMP = repmat(X(i,:), num_labels, 1);
+    TMP = TMP .* all_theta;
+    SUMX = sum(TMP, 2);
+    [val, index] = max(SUMX);
+    p(i) = index;
+end
 
 
 % =========================================================================
